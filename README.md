@@ -153,4 +153,40 @@ changed: [nginx]
 PLAY RECAP *********************************************************************
 nginx                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
-- 
+- добавил в файл nginx.yml параметр nginx_listen_port: 8080;
+- создал файл шаблона [nginx.conf.j2]()
+- добавил handlers и notify в файл плейбука;
+- запустил финальный playbook:
+```console
+[kita@localhost Otus_Unit_12_Ansible]$ ansible-playbook nginx.yml
+
+PLAY [NGINX | Install and configure NGINX] *************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [nginx]
+
+TASK [NGINX | Install EPEL Repo package from standart repo] ********************
+ok: [nginx]
+
+TASK [NGINX | Install NGINX package from EPEL Repo] ****************************
+ok: [nginx]
+
+TASK [NGINX | Create NGINX config file from template] **************************
+changed: [nginx]
+
+RUNNING HANDLER [reload nginx] *************************************************
+changed: [nginx]
+
+PLAY RECAP *********************************************************************
+nginx                      : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+- проверил доступность веб-страницы:
+```console
+
+[kita@localhost Otus_Unit_12_Ansible]$ curl http://192.168.56.241:8080
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Welcome to CentOS</title>
+  <style rel="stylesheet" type="text/css">
+```
