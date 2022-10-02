@@ -125,3 +125,32 @@ PLAY RECAP *********************************************************************
 nginx                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 ___
+#### Выполнение домашнего задания:
+-  создал файл [nginx.yml](), вывел в консоль теги;
+```console
+
+[kita@localhost Otus_Unit_12_Ansible]$ ansible-playbook nginx.yml --list-tags
+
+playbook: nginx.yml
+
+  play #1 (nginx): NGINX | Install and configure NGINX  TAGS: []
+      TASK TAGS: [epel-package, nginx-package, packages]
+[kita@localhost Otus_Unit_12_Ansible]$
+```
+-  запустил установку nginx:
+```console
+[kita@localhost Otus_Unit_12_Ansible]$ ansible-playbook nginx.yml -t nginx-package
+
+PLAY [NGINX | Install and configure NGINX] *************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [nginx]
+
+TASK [NGINX | Install NGINX package from EPEL Repo] ****************************
+
+changed: [nginx]
+
+PLAY RECAP *********************************************************************
+nginx                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+- 
