@@ -126,7 +126,7 @@ nginx                      : ok=2    changed=1    unreachable=0    failed=0    s
 ```
 ___
 #### Выполнение домашнего задания:
--  создал файл [nginx.yml](), вывел в консоль теги;
+-  создал файл [nginx.yml](https://github.com/uNkindy/Otus_Unit_11_Ansible/blob/main/nginx.yml), вывел в консоль теги;
 ```console
 
 [kita@localhost Otus_Unit_12_Ansible]$ ansible-playbook nginx.yml --list-tags
