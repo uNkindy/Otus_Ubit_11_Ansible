@@ -154,7 +154,7 @@ PLAY RECAP *********************************************************************
 nginx                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 - добавил в файл nginx.yml параметр nginx_listen_port: 8080;
-- создал файл шаблона [nginx.conf.j2]()
+- создал файл шаблона [nginx.conf.j2](https://github.com/uNkindy/Otus_Unit_11_Ansible/blob/main/nginx.conf.j2)
 - добавил handlers и notify в файл плейбука;
 - запустил финальный playbook:
 ```console
