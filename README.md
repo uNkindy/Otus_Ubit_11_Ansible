@@ -35,3 +35,37 @@ Host nginx
   IdentitiesOnly yes
   LogLevel FATAL
 ```
+- создал файл hosts в директории ansible/inventory, настроил параметры, проверил доступность управляемого клиента:
+```console
+[kita@localhost Otus_Unit_12_Ansible]$ cat inventory/hosts
+[web]
+nginx ansible_host=127.0.0.1 ansible_port=2222 ansible_user=vagrant ansible_private_key_file=/home/kita/OTUS/Otus_Unit_12_Ansible/.vagrant/machines/nginx/virtualbox/private_key
+
+
+[kita@localhost Otus_Unit_12_Ansible]$ ansible nginx -i inventory/hosts -m ping
+The authenticity of host '[127.0.0.1]:2222 ([127.0.0.1]:2222)' can't be established.
+ECDSA key fingerprint is SHA256:+Vo+cqNTADEFQ7o/Wt4z7fJLdzkQG6Ny+efJj0Dp4D4.
+ECDSA key fingerprint is MD5:9f:1a:c4:4b:98:d7:02:83:6d:f4:0e:93:86:3c:eb:20.
+Are you sure you want to continue connecting (yes/no)? yes
+nginx | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
+- создал файл кофнигурации [ansible.cfg](), настроил параметр inventory, проверил доступность клиента:
+```console
+
+[kita@localhost Otus_Unit_12_Ansible]$ ansible nginx -m ping
+nginx | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[kita@localhost Otus_Unit_12_Ansible]$
+```
+- 
