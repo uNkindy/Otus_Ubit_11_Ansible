@@ -55,7 +55,7 @@ nginx | SUCCESS => {
     "ping": "pong"
 }
 ```
-- создал файл кофнигурации [ansible.cfg](), настроил параметр inventory, проверил доступность клиента:
+- создал файл кофнигурации [ansible.cfg](https://github.com/uNkindy/Otus_Unit_11_Ansible/blob/main/ansible.cfg), настроил параметр inventory, проверил доступность клиента:
 ```console
 
 [kita@localhost Otus_Unit_12_Ansible]$ ansible nginx -m ping
