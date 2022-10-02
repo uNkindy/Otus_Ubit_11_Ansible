@@ -68,4 +68,30 @@ nginx | SUCCESS => {
 }
 [kita@localhost Otus_Unit_12_Ansible]$
 ```
+- проверил работоспособноть команд __uname -r__, __sustemctl status firewalld__, установил паект epel:
+```console
+
+[kita@localhost Otus_Unit_12_Ansible]$ ansible nginx -m command -a "uname -r"
+nginx | CHANGED | rc=0 >>
+3.10.0-1127.el7.x86_64
+
+[kita@localhost Otus_Unit_12_Ansible]$ ansible nginx -m systemd -a name=firewalld
+nginx | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "name": "firewalld",
+    "status": {
+        "ActiveEnterTimestampMonotonic": "0",
+
+
+[kita@localhost Otus_Unit_12_Ansible]$ ansible nginx -m yum -a "name=epel-release state=present" -b
+nginx | CHANGED => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": true,
+    "changes": {
+```
 - 
