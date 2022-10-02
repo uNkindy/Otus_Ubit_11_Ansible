@@ -94,4 +94,34 @@ nginx | CHANGED => {
     "changed": true,
     "changes": {
 ```
-- 
+- создал файл epel.yml, запустил команду ansible-playbook:
+```console
+[kita@localhost Otus_Unit_12_Ansible]$ ansible-playbook epel.yml
+
+PLAY [Install EPEL Repo] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [nginx]
+
+TASK [Install EPEL Repo package from standart repo] ****************************
+ok: [nginx]
+
+PLAY RECAP ********************************************************************
+nginx                      : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+```
+- запустил команду __ansible nginx -m yum -a "name=epel-release state=absent" -b__ и перезапустил playbook:
+```console
+[kita@localhost Otus_Unit_12_Ansible]$ ansible-playbook epel.yml                
+PLAY [Install EPEL Repo] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [nginx]
+
+TASK [Install EPEL Repo package from standart repo] ****************************
+changed: [nginx]
+
+PLAY RECAP *********************************************************************
+nginx                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+___
